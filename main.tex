@@ -8,6 +8,7 @@
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{tikz}
+\usepackage{multirow}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usepackage[acronym]{glossaries}
@@ -67,7 +68,7 @@ Agriculture is one of the most important economic activities, sustaining livelih
 
 Furthermore, markets are usually regulated to include minimum requirements on produce quality and appearance, such as European Commission Implementing Regulation (EU) 543/2011, which sets out minimum quality requirements for a variety of produce, such as intactness, soundness and cleanliness \cite{eu-5432011}. In order to abide by the aforementioned regulation, producers must consider travel time and the possibility of spoilage within that time frame \cite{biv081}. Small defects in produce expand over time and can potentially spoil the whole item (be it a single produce item or a packaged set of items). Detection systems are already in place in post harvesting processes in the horticultural sector, identifying pathological, mechanical, physiological and internal defects \cite{Nturambirwe2020}.
 
-The purpose of this work is to understand what factors can be monitored to ascertain the quality or defect presence in produce, what techniques and technologies are available to analyse and monitor produce in a industrial environment and how is artificial intelligence and related fields enhancing the usage of said technologies. To do this, \textcolor{red}{X} research questions are presented, and existing studies that may answer these questions are analysed and discussed in order to reach an overview of the current state of the art in the topics of produce quality analysis and defect detection using artificial intelligence, the evolution of the domain and their application in the post-harvest processing field.
+The purpose of this work is to understand what factors can be monitored to ascertain the quality or defect presence in produce, what techniques and technologies are available to analyse and monitor produce in a industrial environment and how is artificial intelligence and related fields enhancing the usage of said technologies. To do this, three research questions are presented, and existing studies that may answer these questions are analysed and discussed in order to reach an overview of the current state of the art in the topics of produce quality analysis and defect detection using artificial intelligence, the evolution of the domain and their application in the post-harvest processing field.
 
 The remainder of this document is structured in 4 sections:
 \begin{itemize}
@@ -92,7 +93,7 @@ With this such, this review starts by presenting the Research Questions and the 
 
 \subsection{Research Questions}
 
-For the purpose of this systematic review, we define the main research question as: "What are the current applications of artificial intelligence based detection systems in the post harvest quality assurance processes?". In order to properly answer this question, we can divide the main question into three more focused questions, which can be found in Table~\ref{tab:resquest}. The first question is mainly concerned with the physical factors that affect the quality analysis and defect detection processes. The second question then concerns itself with researching existing systems that utilize the aforementioned factors to detect defects and analyse the quality of produce. Finally, the last question focuses on identifying on which of these available systems integrate artificial intelligence, and to what degree this integrations provides usefulness to the overall system.
+For the purpose of this systematic review, we define the main research question as: ``What are the current applications of artificial intelligence based detection systems in the post harvest quality assurance processes?''. In order to properly answer this question, we can divide the main question into three more focused questions, which can be found in Table~\ref{tab:resquest}. The first question is mainly concerned with the physical factors that affect the quality analysis and defect detection processes. The second question then concerns itself with researching existing systems that utilize the aforementioned factors to detect defects and analyse the quality of produce. Finally, the last question focuses on identifying on which of these available systems integrate artificial intelligence, and to what degree this integrations provides usefulness to the overall system.
 
 \begin{table*}
     \caption{Research Questions}
@@ -111,7 +112,6 @@ For the purpose of this systematic review, we define the main research question 
 
 \subsection{Data Sources}
 
-
 The first step in the systemic review process is to identify the used data sources. It is advisable
 to maintain a small number of comprehensible data sources, in order to maintain clarity and rigour \cite{Par2015}. Table~\ref{tab:edata} identifies the electronic databases chosen for this study. Within these data sources exist a degree of overlap, which will be accounted for in a following step.
 
@@ -124,9 +124,8 @@ to maintain a small number of comprehensible data sources, in order to maintain 
     \hline
         Identifier & Database & URL \\
     \hline
-        DS1 & Web of Science & \url{https://www.webofknowledge.com/} \\
-        DS2 & ACM Digital Library & \url{https://dl.acm.org/} \\
-        DS1 & IEEE Explore & \url{https://ieeexplore.ieee.org/} \\
+        DS1 & ACM Digital Library & \url{https://dl.acm.org/} \\
+        DS2 & IEEE Explore & \url{https://ieeexplore.ieee.org/} \\
     \hline
 
     \hline
@@ -135,6 +134,51 @@ to maintain a small number of comprehensible data sources, in order to maintain 
 
 \subsection{Search Terms}
 
+Considering the application field of this research, along with the aforementioned questions, a number of domains were selected to assess not only how many studies have been performed, but how their combination affects the number of results. With this, consider the following domain selection and keywords, per Table~\ref{tab:resdom}.
+
+\begin{table*}
+	\caption{Domains and keywords used to select search terms}
+	\label{tab:resdom}
+	\centering
+
+	\begin{tabular}{ll}
+	\hline
+		Domain & Keywords \\
+	\hline
+		Artificial Intelligence & (``Artificial Intelligence'' OR ``Machine Learning'') \\
+		Produce & (``Fruits'' OR ``Vegetables'' OR ``Berries'') \\
+		Quality, Defects & (``Quality'' OR ``Defect'') \\
+		Detection, Sorting & (``Classification'' OR ``Detection'' OR ``Grading'' OR ``Sorting'') \\
+	\hline
+	\end{tabular}
+\end{table*}
+
+Search terms were applied to Title, Abstract and Keywords. Different combinations of these domains were attempted and evaluated until a final search query was reached. Refer to Table~\ref{tab:resres} for the results of these attempts.
+
+\begin{table*}[]
+\caption{Combination of domains and respective results}
+\label{tab:resres}
+\begin{tabular}{llll}
+\hline
+\multirow{2}{*}{Domains}            & \multicolumn{3}{l}{Results} \\ \cline{2-4} 
+                                    & ACM     & IEEE    & Total   \\ \hline
+Artificial Intelligence             & 122,298 & 420,518 & 542,816 \\
+Produce                             & 492,658 & 7,183   & 499,841 \\
+Quality, Defects                    & 231,926 & 466,142 & 698,068 \\
+Detection, Sorting                  & 246,506 & 747,608 & 994,114 \\
+Artificial Intelligence AND Produce & 892     & 926     & 1,818   \\
+Produce AND Quality, Defects        & 1,847   & 1,271   & 3,118   \\
+Produce AND Quality, Defects AND Detection, Sorting                             & 1004 & 557 & 1,561 \\
+Artificial Intelligence AND Produce AND Quality, Defects AND Detection, Sorting & 379  & 189 & 568   \\ \hline
+\end{tabular}
+\end{table*}
+
+As can be inferred from Table~\ref{tab:resres}, we see that each individual domain provides a large volume of results. As such, the intersection of all domains provides us with a sufficient number of results that are more focused than other intersections, with some but no all defined domains. The final used query is as follows:
+
+\begin{quote}
+ (``Artificial Intelligence'' OR ``Machine Learning'') AND (``Fruits'' OR ``Vegetables'' OR ``Berries'') AND (``Quality'' OR ``Defect'') AND (``Classification'' OR ``Detection'' OR ``Grading'' OR ``Sorting'')
+\end{quote}
+
 \subsection{Quality assessment: inclusion and exclusion criteria}
 
 \subsection{Data Extraction}
@@ -142,12 +186,16 @@ to maintain a small number of comprehensible data sources, in order to maintain 
 \section{Results}
 \label{sec:res}
 
-\subsection{RQX}
+\subsection{RQ1}
+\subsection{RQ2}
+\subsection{RQ3}
 
 \section{Discussion}
 \label{sec:disc}
 
-\subsection{RQX}
+\subsection{RQ1}
+\subsection{RQ2}
+\subsection{RQ3}
 
 \section{Conclusion and future work}
 \label{sec:conc}
