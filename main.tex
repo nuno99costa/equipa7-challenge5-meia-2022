@@ -1,6 +1,6 @@
 \documentclass[conference]{IEEEtran}
 
-\usepackage{cite}
+\usepackage[numbers]{natbib}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
@@ -19,6 +19,8 @@
     urlcolor=blue}
 
 \begin{document}
+
+\newcommand{\authcite}[1]{\citeauthor{#1} \cite{#1}}
 
 \title{A systematic review on produce defect detection and quality assessment using artificial intelligence}
 
@@ -103,9 +105,9 @@ For the purpose of this systematic review, we define the main research question 
     \hline
         & \textbf{Research Question}\\
     \hline
-        RQ1 & What factors can be monitored to ascertain the quality or defect presence in produce? \\
+        RQ1 & What objectives can be defined in the context of quality assessment or defect presence in produce? \\
         RQ2 &  What techniques and technologies are available to analyse and monitor produce in a industrial environment?\\
-        RQ3 & What, if any, techniques and technologies previously researched utilize artificial intelligence, and how? \\
+        RQ3 & What techniques and technologies previously researched utilize artificial intelligence, and how? \\
     \hline
     \end{tabular}
 \end{table*}
@@ -190,10 +192,9 @@ In order to assess if a specific article should be included in this review, a se
 		 & Inclusion Criteria \\
 	\hline
 		IC1 & The source belongs to the field of agricultural/food engineering  \\
-		IC2 & The source is peer reviewed \\
-		IC3 & The source describes a novel contribution to the fields of study \\
-		IC4 & The source describes a methodology or system for produce quality control or defect detection, including novel sensor and software components \\
-		IC5 & The source describes what factors are being measured in order to obtain the results described \\
+		IC2 & The source describes a novel contribution to the fields of study \\
+		IC3 & The source describes a methodology or system for produce quality control or defect detection, including novel sensor and software components \\
+		IC4 & The source describes what factors are being measured in order to obtain the results described \\
 	\hline
 	\end{tabular}
 \end{table*}
@@ -207,7 +208,7 @@ In order to assess if a specific article should be included in this review, a se
 		 & Exclusion Criteria \\
 	\hline
 		EC1 & The source is over 5 years old \\
-		EC2 & The source is a book chapter, dissertation, systematic review or thesis \\
+		EC2 & The source is a systematic review \\
 		EC3 & The source is not written in English \\
 		EC4 & The contribution to the fields of agricultural/food engineering and artificial intelligence is not clear of not the focus of the source \\
 		EC5 & The source does not provide sufficient information on the specifications of the techniques, methodologies or systems used or developed \\
@@ -217,26 +218,168 @@ In order to assess if a specific article should be included in this review, a se
 
 \subsection{Data Extraction}
 
-The process of data extraction begins with extracting data from the pre-defined digital libraries by applying the aforementioned search terms and filtering the data entries by the last five years of studies (a time interval from 2017 to 2022). This timetable was selected by taking into consideration available working hours from the authors of this document, as well as maintaining a reasonable both new research and foundational research. 
+Figure~\ref{fig:elig} represents the process used to undertake this systematic review.
+
+\begin{figure*}[tb]
+	\centering
+	\includegraphics[width=0.45\textwidth]{images/eligibilityprocess.png}
+	\caption{Eligibility Process Flow Diagram}
+	\label{fig:elig}
+\end{figure*}
+
+The process of data extraction begins with extracting data from the pre-defined digital libraries by applying the aforementioned search terms and filtering the data entries by the last five years of studies (a time interval from 2017 to 2022). This timetable was selected by taking into consideration available working hours from the authors of this document, as well as maintaining a reasonable both new research and foundational research. The search brought forth 366 papers to review.
+The following step was to remove duplicates. Of the initial 366 papers, 7 were duplicates, in accordance to title, abstract and DOI number filter search. As per \authcite{kitch}, of these duplicates the most recent release was included in the process.
+The resulting 352 papers moved on to the next stage of the process, screening. In this, the papers were subject to sequential screening: abstract screening, relevance reassessment and full-text screening.
+The first step, abstract screening, evaluates papers based on their abstract, ascertaining from that their relevance to the systemic review topics. In this stage, 208 papers were deemed irrelevant to the research at hand, with 58 papers considered relevant and 48 papers requiring further analysis to determine their relevancy.
+In the next step, the relevance reassessment, the papers deemed possibly relevant are subject to a quick read through in order to determine their relevancy. Of the 48 papers that required reassessment, 28 were classified as relevant and 20 were deemed irrelevant.
+In the final step of screening, the full text screening, a further 23 papers were removed from this review, on the basis of purview. We are left with 63 papers at the end of the screening stage.
+At the eligibility stage, the papers are thoroughly read in order to understand what their contributions to the fields at hand. As such, from the 63 papers, 38 are included in this review.
 
 \section{Results}
 \label{sec:res}
 
-\subsection{RQ1}
-\subsection{RQ2}
-\subsection{RQ3}
+This section describes the results obtained in this systematic review, with a particular focus on answering the question defined in Table~\ref{tab:resquest}. All of the papers in this review were specific on the type of produce their research targeted, information which is specified in Table~\ref{tab:restype}.
+
+
+\begin{table*}
+\caption{Produce Type in produce defect detection and quality assessment papers}
+\label{tab:restype}
+\begin{tabular}{p{0.75\textwidth}l}
+\hline
+Paper                 & Produce Type     \\
+\hline
+\authcite{Pande2019-fz}, \authcite{Nie2019-hx}, \authcite{Hamza2018-sc}, \authcite{Muladi2019-jp}, \authcite{Stasenko2021-jt}, \authcite{Zhang2020}, \authcite{Kumar2021}, \authcite{Zeb2022}, \authcite{Tran2021}, \authcite{Geng2021} &
+  Apple \\
+\authcite{Zeb2022}                                                & Apricot       \\
+\authcite{Saragih2021-wu}, \authcite{Mishra2022-kz}, \authcite{Al_Haque2021-fw}, \authcite{Kumar2021} &
+  Banana \\
+\authcite{Hasan2021}                                              & Bitter Gourd  \\
+\authcite{Park2021-de}, \authcite{Annaland2020}                   & Cherry        \\
+\authcite{Fadchar2020-pp}                                         & Coconut       \\
+\authcite{EAngelia2021}                                           & Coffee Bean   \\
+\authcite{Anita2020-nm}, \authcite{Tamayo-Monsalve2022-ud}        & Coffee Cherry \\
+\authcite{Castro2019-hk}                                          & Gooseberry    \\
+\authcite{Zeb2022}                                                & Grapes        \\
+\authcite{Kumar2021}                                              & Guava         \\
+\authcite{Pande2019-fz}                                           & Lemon         \\
+\authcite{Kumar2021}                                              & Lime          \\
+\authcite{Zeb2022}                                                & Loquat        \\
+\authcite{Prabhu2022-zh}, \authcite{Vo2019}, \authcite{Basri2018}, \authcite{Pise2018}, \authcite{Wagimin2022}, \authcite{Zeb2022}, \authcite{Bhole2020} &
+  Mango \\
+\authcite{Mohtar2019-ru}, \authcite{Azizah2017}                   & Mangosteen    \\
+\authcite{Zeb2022}, \authcite{Rangel2021}                         & Melon         \\
+\authcite{MiraeiAshtiani2021}                                     & Mulberry      \\
+\authcite{Nipas2022}                                              & Onion         \\
+\authcite{Pande2019-fz}, \authcite{Kumar2021}, \authcite{Zeb2022} & Orange        \\
+\authcite{GarillosManliguez2021}                                  & Papaya        \\
+\authcite{Choi2018-xp}, \authcite{Pande2019-fz}                   & Pear          \\
+\authcite{Lu2018}                                                 & Pear          \\
+\authcite{Basri2018}                                              & Pitaya        \\
+\authcite{Zeb2022}                                                & Plum          \\
+\authcite{Kumar2021}                                              & Pomegranate   \\
+\authcite{Indrabayu2019}                                          & Strawberry    \\
+\authcite{Bautista2020-ye}, \authcite{Shi2019}                    & Tomato     \\
+
+\hline
+\end{tabular}
+\end{table*}
+
+
+\subsection{RQ1 - What objectives can be defined in the context of quality assessment or defect presence in produce?}
+
+Of the retrieved papers, a large majority (19) focuses on the quality and presence of defects in the analysed produce as a measurable goal of their research. As quality is extremely connected to defects and defect presence is a step in quality assessment in some of the papers reviewed, both of these were considered to be a single instance of an objective. Some papers also defined quality exactly as the non-existence of defects in the produce. Furthermore ripeness also garnered a slew of papers. This is likely due to the simplicity of training models to detect ripeness in fruits specifically, due to the colour changes that happen throughout this process. Some papers targeted other objectives, as can be seen on Table~\ref{tab:resobj}.
+
+\begin{table*}
+\caption{Objectives in produce defect detection and quality assessment papers}
+\label{tab:resobj}
+\begin{tabular}{p{0.75\textwidth}l}
+\hline
+Paper                 & Objective \\
+\hline
+\authcite{Choi2018-xp}, \authcite{Bautista2020-ye} 	  & Appearance \\
+\authcite{Lu2018}, \authcite{Rangel2021} & Chemical Contents \\
+\authcite{Choi2018-xp}, \authcite{Tran2021} 	  & Flavour \\
+\authcite{Fadchar2020-pp}, \authcite{Hamza2018-sc}, \authcite{Mohtar2019-ru}, \authcite{Saragih2021-wu}, \authcite{Mishra2022-kz}, \authcite{Castro2019-hk}, \authcite{Tamayo-Monsalve2022-ud}, \authcite{Prabhu2022-zh}, \authcite{MiraeiAshtiani2021}, \authcite{Pise2018}, \authcite{GarillosManliguez2021}, \authcite{Indrabayu2019}  & Maturity/Ripeness \\
+\authcite{Pande2019-fz}, \authcite{Nie2019-hx}, \authcite{Bautista2020-ye}, \authcite{Anita2020-nm}, \authcite{Muladi2019-jp}, \authcite{Al_Haque2021-fw}, \authcite{Park2021-de}, \authcite{Stasenko2021-jt}, \authcite{Azizah2017}, \authcite{Hasan2021}, \authcite{Zhang2020}, \authcite{Kumar2021}, \authcite{Pise2018}, \authcite{Wagimin2022}, \authcite{Annaland2020}, \authcite{Nipas2022}, \authcite{Shi2019}, \authcite{EAngelia2021}, \authcite{Bhole2020} & Overall Quality and Defects \\
+\authcite{Bautista2020-ye}, \authcite{Vo2019} & Size/Weight \\
+\authcite{Pande2019-fz}, \authcite{Al_Haque2021-fw}, \authcite{Basri2018}, \authcite{Kumar2021}, 
+\authcite{Zeb2022}, \authcite{Geng2021}  & Type Distinction\\
+
+\hline
+\end{tabular}
+\end{table*}
+
+\subsection{RQ2 - What techniques and technologies are available to analyse and monitor produce in a industrial environment?}
+
+Most of the retrieved results utilize computer vision to analyse their prepared data (29). This may be caused by the relative cost of imaging hardware when compared to other hardware required for different imaging/sensing factors. On such example is Spectral Imaging/Spectroscopy, which garnered 10 relevant papers to this systematic review in the last 5 years. Other novel technologies and techniques were also used, all of which are recorded in Table~\ref{tab:restech}.
+
+\begin{table*}
+\caption{Used techniques in produce defect detection and quality assessment papers}
+\label{tab:restech}
+\begin{tabular}{p{0.75\textwidth}l}
+\hline
+Paper                 & Used Technique     \\
+\hline
+\authcite{Fadchar2020-pp} & Acoustic Vibrations \\
+\authcite{Rangel2021} & Chemometrics \\
+\authcite{Choi2018-xp}, \authcite{Wagimin2022} & Size/Weight \\
+\authcite{Choi2018-xp}, \authcite{Tamayo-Monsalve2022-ud},\authcite{Zeb2022}, \authcite{Tran2021}, \authcite{GarillosManliguez2021}, \authcite{Annaland2020}, \authcite{Lu2018}, \authcite{Rangel2021}, \authcite{Geng2021} & Spectroscopy/Spectral Imaging \\
+\authcite{Bhole2020} & Thermal Imaging \\
+\authcite{Choi2018-xp}, \authcite{Pande2019-fz}, \authcite{Nie2019-hx}, \authcite{Hamza2018-sc}, \authcite{Bautista2020-ye}, \authcite{Mohtar2019-ru}, \authcite{Saragih2021-wu}, \authcite{Mishra2022-kz}, \authcite{Anita2020-nm}, \authcite{Castro2019-hk}, \authcite{Muladi2019-jp}, \authcite{Al_Haque2021-fw}, \authcite{Prabhu2022-zh}, \authcite{Park2021-de}, \authcite{Stasenko2021-jt}, \authcite{Azizah2017}, \authcite{Hasan2021}, \authcite{Zhang2020}, \authcite{MiraeiAshtiani2021}, \authcite{Vo2019}, \authcite{Basri2018}, \authcite{Kumar2021}, \authcite{Pise2018}, \authcite{GarillosManliguez2021}, \authcite{Annaland2020}, \authcite{Nipas2022}, \authcite{Indrabayu2019}, \authcite{Shi2019}, \authcite{EAngelia2021}, \authcite{Bhole2020} & Visual Imaging \\
+\hline
+\end{tabular}
+\end{table*}
+
+
+\subsection{RQ3 - What techniques and technologies previously researched utilize artificial intelligence, and how?}
+
+Most of the researched papers utilize a form of neural network to analyse and process their data (27, across back propagation, convolutional, feed forward and unspecified neural networks). This technique is then applied towards the papers' stated objective and against a variety of separate, different datasets containing different produce types. Some papers also include multiple techniques, in order to compare and select the most well suited for their objectives, such as k-Nearest Neighbours and Naive-Bayes. All of these are included in Table~\ref{tab:resai}.
+
+
+\begin{table*}
+\caption{Used artificial intelligence techniques in produce defect detection and quality assessment papers}
+\label{tab:resai}
+\begin{tabular}{p{0.75\textwidth}l}
+\hline
+Paper                 & Used Technique     \\
+\hline
+\authcite{Nie2019-hx}, \authcite{Muladi2019-jp} 		  	  & Back Propagation Neural Network \\
+\authcite{Pande2019-fz}, \authcite{Mohtar2019-ru}, \authcite{Saragih2021-wu}, \authcite{Al_Haque2021-fw}, \authcite{Tamayo-Monsalve2022-ud}, \authcite{Park2021-de}, \authcite{Stasenko2021-jt}, \authcite{Azizah2017}, \authcite{Hasan2021}, \authcite{MiraeiAshtiani2021}, \authcite{Basri2018}, \authcite{Kumar2021}, \authcite{GarillosManliguez2021}, \authcite{Shi2019}, \authcite{EAngelia2021}, \authcite{Bhole2020}, \authcite{Geng2021} & Convolutional Neural Network \\
+\authcite{Annaland2020} & Convolutional Siamese Networks \\
+\authcite{Prabhu2022-zh} 	  & Decision Tree \\
+\authcite{Tran2021} 	  & Discriminant Analysis \\
+\authcite{Lu2018} & Extreme Learning Model \\
+\authcite{Choi2018-xp}, \authcite{Hamza2018-sc}, \authcite{Bautista2020-ye}, \authcite{Rangel2021} & Feed Forward Neural Network \\
+\authcite{Zhang2020} & Fuzzy C-Means \\
+\authcite{Anita2020-nm}, \authcite{Prabhu2022-zh}, \authcite{Wagimin2022}, \authcite{Zeb2022}, \authcite{Tran2021}  & k-Nearest Neighbors Model \\
+\authcite{Castro2019-hk}, \authcite{Prabhu2022-zh}, \authcite{Vo2019}, \authcite{Wagimin2022}, 
+\authcite{GarillosManliguez2021} & Multimodal Late Fusion \\
+\authcite{Pise2018}, \authcite{Zeb2022} & Naive-Bayes \\
+\authcite{Zhang2020} & Non-Linear Programming Genetic Algorithm \\
+\authcite{Rangel2021} & Partial Least Squares \\
+\authcite{Rangel2021} & Principal Component Regression \\
+\authcite{Nipas2022} & Random Forests Classifier \\
+\authcite{Zeb2022}, \authcite{Tran2021}, \authcite{Indrabayu2019} & Support Vector Machines \\
+\authcite{Mishra2022-kz}, \authcite{Tamayo-Monsalve2022-ud} 	  & Transfer Learning Model \\
+\authcite{Fadchar2020-pp}, \authcite{Anita2020-nm}, \authcite{Wagimin2022} 	  & Unspecified Neural Network \\
+\hline
+\end{tabular}
+\end{table*}
+
 
 \section{Discussion}
 \label{sec:disc}
 
-\subsection{RQ1}
-\subsection{RQ2}
-\subsection{RQ3}
+\subsection{RQ1 - What objectives can be defined in the context of quality assessment or defect presence in produce?}
+
+\subsection{RQ2 - What techniques and technologies are available to analyse and monitor produce in a industrial environment?}
+
+\subsection{RQ3 - What techniques and technologies previously researched utilize artificial intelligence, and how?}
 
 \section{Conclusion and future work}
 \label{sec:conc}
 
-\bibliographystyle{IEEEtran}
-\bibliography{references/introduction,references/method}
+\bibliographystyle{IEEEtranN}
+\bibliography{references/introduction,references/method,references/results}
 
 \end{document}
