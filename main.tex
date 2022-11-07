@@ -1,11 +1,13 @@
 \documentclass[conference]{IEEEtran}
 
 \usepackage[numbers]{natbib}
+\usepackage{pgfplots}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{pgf-pie}  
 \usepackage{hyperref}
 \usepackage{tikz}
 \usepackage{multirow}
@@ -27,44 +29,48 @@
 \author{
     \IEEEauthorblockN{1\textsuperscript{st} João Silva}
     \IEEEauthorblockA{\textit{Departamento de Engenharia Informática} \\
-    \textit{Instituto de Superior de Engenharia do Porto}\\
+    \textit{Instituto de Superior de Engenharia do Porto} \\
     1150425@isep.ipp.pt}
     \\
     \IEEEauthorblockN{3\textsuperscript{th} Nuno Costa}
     \IEEEauthorblockA{\textit{Departamento de Engenharia Informática} \\
-    \textit{Instituto de Superior de Engenharia do Porto}\\
+    \textit{Instituto de Superior de Engenharia do Porto} \\
     1171584@isep.ipp.pt}
     \\
     \IEEEauthorblockN{5\textsuperscript{th} Diogo Formosinho}
     \IEEEauthorblockA{\textit{Departamento de Engenharia Informática} \\
-    \textit{Instituto de Superior de Engenharia do Porto}\\
+    \textit{Instituto de Superior de Engenharia do Porto} \\
     1210056@isep.ipp.pt}
     \and
     \IEEEauthorblockN{2\textsuperscript{nd} João Santos}
     \IEEEauthorblockA{\textit{Departamento de Engenharia Informática} \\
-    \textit{Instituto de Superior de Engenharia do Porto}\\
+    \textit{Instituto de Superior de Engenharia do Porto} \\
     1161023@isep.ipp.pt}
     \\
     \IEEEauthorblockN{4\textsuperscript{th} José Araújo}
     \IEEEauthorblockA{\textit{Departamento de Engenharia Informática} \\
-    \textit{Instituto de Superior de Engenharia do Porto}\\
+    \textit{Instituto de Superior de Engenharia do Porto} \\
     1180943@isep.ipp.pt}
     \\
     \IEEEauthorblockN{6\textsuperscript{th} Francisco Cabrita}
     \IEEEauthorblockA{\textit{Departamento de Engenharia Informática} \\
-    \textit{Instituto de Superior de Engenharia do Porto}\\
+    \textit{Instituto de Superior de Engenharia do Porto} \\
     1210058@isep.ipp.pt}
 }
 \maketitle
 
 \begin{abstract}
 
+The Food and Agriculture Organization of the United Nations indicates that the gross production value of produce across the world in 2020 reached over 4.145 trillion US dollars. With such large-scale production, transportation required to deliver these foods to consumers. With this, the post-harvest process has become crucial to reduce waste, preserve said foods and provide the end consumer with fresh, quality items. Additionally, regulated markets usually include minimum requirements on produce quality and appearance. With the automation of post harvest processes in the agricultural sector, systems are and have been designed to detect, grade and sort fruit and vegetables in a production line environment. This systematic review presents three research questions aimed at providing an overview of state of the art produce quality assessment and defect presence artificial intelligence based systems. The results have shown a great variety of produce target types, detection methods and techniques, objective metrics and artificial intelligence techniques used. The results of this review are also relevant for devising new systems that target untargeted produce types and unresearched detection systems.
+
 \end{abstract}
 
 \begin{IEEEkeywords}
+Artificial Intelligence, Produce, Fruits, Vegetables, Quality Assessment, Defect Presence, Review
 \end{IEEEkeywords}
 
 \section{Introduction}
+\label{sec:intro}
 
 Agriculture is one of the most important economic activities, sustaining livelihoods by securing food production and providing income \cite{FDES-1}, with a global gross value of 4.145 trillion US dollars in 2020 \cite{FAO1}. This sector has and continues to undergo a process of steady industrialization, through the increase of commercial farm size, commodity specialization and increase capital availability, among other factors \cite{10.2307/1243439}. This industrialization has caused an explosive increase in productivity for nearly all agricultural activity \cite{owidagriculturalproduction}. In order to take full advantage of this increased productivity, improvements are also required in the infrastructure and post harvest processes of a given agricultural unit, before the produce reaches the final consumer \cite{Food_and_Agriculture_Organization_of_the_United_Nations2010-hb}. With this, the post-harvest process has become crucial to reduce waste, preserve said foods and provide the end consumer with fresh, quality items \cite{foods6010008}. The previously mentioned improvements have materialized into facilities in which the produce can be stored, cleaned, prepared, sorted and packaged. However, with the large throughput of produce being processed in the aforementioned facilities, there is a need for systems that effectively monitor and sort said produce, taking into account defects and overall quality \cite{Mahalik2009}.
 
@@ -103,7 +109,7 @@ For the purpose of this systematic review, we define the main research question 
 
     \begin{tabular}{ll}
     \hline
-        & \textbf{Research Question}\\
+        & \textbf{Research Question} \\
     \hline
         RQ1 & What objectives can be defined in the context of quality assessment or defect presence in produce? \\
         RQ2 &  What techniques and technologies are available to analyse and monitor produce in a industrial environment?\\
@@ -244,7 +250,7 @@ This section describes the results obtained in this systematic review, with a pa
 \begin{table*}
 \caption{Produce Type in produce defect detection and quality assessment papers}
 \label{tab:restype}
-\begin{tabular}{p{0.75\textwidth}l}
+\begin{tabular}{p{0.85\textwidth}l}
 \hline
 Paper                 & Produce Type     \\
 \hline
@@ -292,7 +298,7 @@ Of the retrieved papers, a large majority (19) focuses on the quality and presen
 \begin{table*}
 \caption{Objectives in produce defect detection and quality assessment papers}
 \label{tab:resobj}
-\begin{tabular}{p{0.75\textwidth}l}
+\begin{tabular}{p{0.76\textwidth}l}
 \hline
 Paper                 & Objective \\
 \hline
@@ -339,29 +345,28 @@ Most of the researched papers utilize a form of neural network to analyse and pr
 \begin{table*}
 \caption{Used artificial intelligence techniques in produce defect detection and quality assessment papers}
 \label{tab:resai}
-\begin{tabular}{p{0.75\textwidth}l}
+\begin{tabular}{p{0.65\textwidth}l}
 \hline
 Paper                 & Used Technique     \\
 \hline
 \authcite{Nie2019-hx}, \authcite{Muladi2019-jp} 		  	  & Back Propagation Neural Network \\
 \authcite{Pande2019-fz}, \authcite{Mohtar2019-ru}, \authcite{Saragih2021-wu}, \authcite{Al_Haque2021-fw}, \authcite{Tamayo-Monsalve2022-ud}, \authcite{Park2021-de}, \authcite{Stasenko2021-jt}, \authcite{Azizah2017}, \authcite{Hasan2021}, \authcite{MiraeiAshtiani2021}, \authcite{Basri2018}, \authcite{Kumar2021}, \authcite{GarillosManliguez2021}, \authcite{Shi2019}, \authcite{EAngelia2021}, \authcite{Bhole2020}, \authcite{Geng2021} & Convolutional Neural Network \\
 \authcite{Annaland2020} & Convolutional Siamese Networks \\
-\authcite{Prabhu2022-zh} 	  & Decision Tree \\
+\authcite{Castro2019-hk}, \authcite{Prabhu2022-zh} & Decision Tree \\
 \authcite{Tran2021} 	  & Discriminant Analysis \\
 \authcite{Lu2018} & Extreme Learning Model \\
 \authcite{Choi2018-xp}, \authcite{Hamza2018-sc}, \authcite{Bautista2020-ye}, \authcite{Rangel2021} & Feed Forward Neural Network \\
 \authcite{Zhang2020} & Fuzzy C-Means \\
-\authcite{Anita2020-nm}, \authcite{Prabhu2022-zh}, \authcite{Wagimin2022}, \authcite{Zeb2022}, \authcite{Tran2021}  & k-Nearest Neighbors Model \\
-\authcite{Castro2019-hk}, \authcite{Prabhu2022-zh}, \authcite{Vo2019}, \authcite{Wagimin2022}, 
+\authcite{Anita2020-nm}, \authcite{Prabhu2022-zh}, \authcite{Wagimin2022}, \authcite{Zeb2022}, \authcite{Tran2021}, \authcite{Castro2019-hk}  & k-Nearest Neighbors Model \\
 \authcite{GarillosManliguez2021} & Multimodal Late Fusion \\
 \authcite{Pise2018}, \authcite{Zeb2022} & Naive-Bayes \\
 \authcite{Zhang2020} & Non-Linear Programming Genetic Algorithm \\
 \authcite{Rangel2021} & Partial Least Squares \\
 \authcite{Rangel2021} & Principal Component Regression \\
 \authcite{Nipas2022} & Random Forests Classifier \\
-\authcite{Zeb2022}, \authcite{Tran2021}, \authcite{Indrabayu2019} & Support Vector Machines \\
+\authcite{Zeb2022}, \authcite{Tran2021}, \authcite{Indrabayu2019}, \authcite{Castro2019-hk}, \authcite{Prabhu2022-zh}, \authcite{Vo2019}, \authcite{Wagimin2022} & Support Vector Machines \\
 \authcite{Mishra2022-kz}, \authcite{Tamayo-Monsalve2022-ud} 	  & Transfer Learning Model \\
-\authcite{Fadchar2020-pp}, \authcite{Anita2020-nm}, \authcite{Wagimin2022} 	  & Unspecified Neural Network \\
+\authcite{Fadchar2020-pp}, \authcite{Anita2020-nm}, \authcite{Wagimin2022}, \authcite{Castro2019-hk} & Unspecified Neural Network \\
 \hline
 \end{tabular}
 \end{table*}
@@ -370,14 +375,185 @@ Paper                 & Used Technique     \\
 \section{Discussion}
 \label{sec:disc}
 
+This section will take a deeper look at the answer the reviewed papers provide to the research questions. It will also provide a general discussion and an overall direction for the researched field in the future.
+
+Figure~\ref{fig:pubs} shows the yearly distribution of the analysed papers in this systematic review. With this we can see a continuous interest in this very specific subdomain of both agricultural and artificial intelligence field.
+
+\begin{figure}[tb]
+	\centering
+	\caption{Number of studies published per year}
+	\begin{tikzpicture}
+    \begin{axis}[
+            ybar,
+    		bar width = 20pt,
+    		ylabel=Number of studies,
+    		xlabel=Publication Year,
+            symbolic x coords={2017,2018,2019,2020,2021,2022},
+        ]
+        \addplot coordinates{
+    	(2017,1) (2018,5) (2019,8) (2020,6) (2021,12) (2022,6)};
+    \end{axis}
+	\end{tikzpicture}
+	\label{fig:pubs}
+\end{figure}
+
+Furthermore, Figure~\ref{fig:pies} shows us the distribution for all reviewed paper for produce type, metric objective, detection technique used and artificial intelligence technique used. This figure presents us with evidence that suggests an overall preference of researchers towards fruits, with very few papers researching produce such as onion \cite{Nipas2022} or tomato \cite{Bautista2020-ye} \cite{Shi2019}. The overall preference towards fruits such as apple (9 papers) and mango (7 papers) leads us to believe that this representation profile of produce types is due to more apparent effects of defects and decay in fruits, which tend to change colour along their maturity process and provide a increased contrast between defects and healthy produce and facilitate the use of less precise detection techniques.
+
+\begin{figure*}[tb]
+	\centering
+	\caption{Number of studies published per produce type, objective, detection technique and artificial intelligence technique}
+	\resizebox{0.9\textwidth}{!}{%
+	\begin{tikzpicture}
+	\pie[sum=auto, pos={0,0}]{
+		9/Apple,
+		7/Mango,
+		4/Banana,
+		4/Cherry,
+		3/Orange,
+		2/Mangosteen,
+		2/Melon,
+		2/Pear,
+		2/Tomato,
+		19/Other
+    }
+	\pie[sum=auto, pos={9,0}, rotate = 200]{
+		19/Overall Quality/Defect Presence,
+		12/Maturity/Ripeness,
+		6/Type Distinction,
+		2/Appearance,
+		2/Chemical Contents,
+		2/Flavour,
+		2/Size/Weight
+    }
+	\pie[sum=auto, pos={0,-8}, rotate = 220]{
+		30/Visual Imaging,
+		9/Spectroscopy/Spectral Imaging,
+		2/Size/Weight,
+		1/Acoustic Vibrations,
+		1/Chemometrics,
+		1/Thermal Imaging
+    }
+	\pie[sum=auto, pos={9,-8}, rotate = 40]{
+		17/Convolutional Neural Network,
+		9/Other,
+		7/Support Vector Machines,
+		6/k-Nearest Neighbors Model,
+		4/Unspecified Neural Network,
+		4/Feed Forward Neural Network,
+		2/Back Propagation Neural Network,
+		2/Naive-Bayes,
+		2/Decision Trees,
+		2/Transfer Learning Model
+    }
+	\node (O) at (0,-4){a) Produce Type};
+	\node (O) at (9,-4){b) Objective};
+	\node (O) at (0,-12){c) Detection Technique};
+	\node (O) at (9,-12){d) Artificial Intelligence Technique};
+	\end{tikzpicture}
+	}
+	\label{fig:pies}
+\end{figure*}
+
 \subsection{RQ1 - What objectives can be defined in the context of quality assessment or defect presence in produce?}
+
+In the reviewed papers, and as can be seen in Figure~\ref{fig:pies}, 19 papers defined overall defect presence and quality detection as their objectionable metric. These papers either:
+
+\begin{itemize}
+	\item Selected defect presence as their single objective \cite{Shi2019} \cite{Annaland2020} \cite{Nipas2022} \cite{Zhang2020} \cite{Hasan2021} \cite{Azizah2017} \cite{Stasenko2021-jt}
+	\item Selected defect presence as one of their quality determinator \cite{Muladi2019-jp} \cite{Nie2019-hx} \cite{Kumar2021} \cite{Choi2018-xp} \cite{Pande2019-fz} \cite{Nie2019-hx} \cite{Anita2020-nm} \cite{Park2021-de}
+	\item Did not select defect presence as one of their quality determinator \cite{Pise2018} \cite{Wagimin2022} \cite{Vo2019} \cite{EAngelia2021} \cite{Bhole2020}
+\end{itemize}
+
+These objectives were extremely inline with the research question, aiming to answer to the basic question it sets.
+
+12 papers selected maturity or ripeness of produce as their objective \cite{Hamza2018-sc} \cite{Pise2018} \cite{GarillosManliguez2021} \cite{Mohtar2019-ru} \cite{Saragih2021-wu} \cite{Mishra2022-kz} \cite{Castro2019-hk} \cite{Tamayo-Monsalve2022-ud} \cite{Prabhu2022-zh} \cite{Fadchar2020-pp} \cite{MiraeiAshtiani2021} \cite{Bhole2020}. This objective has real world importance, as ripeness and maturity can be a defining factor in produce quality and selling ability.
+
+6 papers selected type distinction as their objective \cite{Geng2021} \cite{Zeb2022} \cite{Basri2018} \cite{Kumar2021} \cite{Pande2019-fz} \cite{Al_Haque2021-fw}. Although this objective may not present immediate usefulness in the industrialized post-harvest processes, these research endeavours pave the way for more ambidextrous systems that are interoperable between different produce types and processes.
+
+2 papers selected appearance as their objective \cite{Choi2018-xp} \cite{Bautista2020-ye}. This goal differentiates itself from the previously mentioned quality objective, due to the author's explicit setting of this goal. As mentioned in Section~\ref{sec:intro}, certain markets prize the physical appearance of produce, increasing the market value of items deemed perfect (or close thereof). This research is then an important step in providing automated tooling for selecting these ``perfect'' examples.
+
+2 papers selected chemical contents as their objective \cite{Lu2018} \cite{Rangel2021}. This goal was set as a stepping stone to other objectives, such as type distinction \cite{Rangel2021} and flavour profiling \cite{Lu2018}. Due to the non-destructive nature of the techniques used in both papers, this goal can be a great factor for multi-factor systems to further improve their accuracy.
+
+2 papers selected flavour as their objective \cite{Choi2018-xp} \cite{Tran2021}. One of these papers selected specifically sweetness, a favourable quality in their target produce type, apples \cite{Tran2021}. This goal has similar usefulness as the latter papers that targeted appearance, allowing for better quality assessment and selecting ``premium'' items, as an example. The other reviewed paper included internal flavours of apples as a secondary objective towards classifying the quality of said apples \cite{Choi2018-xp}. This methodology is an example of the multi-factor systems that can be developed using other research and objectives set by researchers. 
+
+Finally, 2 papers selected size as their objective \cite{Bautista2020-ye} \cite{Vo2019}. These systems utilized sizing as their classifying metric, mainly due to the fact that size is a preponderant factor in quality for the analysed produce: mangoes \cite{Vo2019} and tomatoes \cite{Bautista2020-ye}.
+
+Overall, we see a variety of different objectives, with a increased number of papers aiming towards generalized goals such as quality rather than more specific ones. The review of the papers leads that this discrepancy is caused by the intrinsic uncertain nature of these generalized goals, allowing for greater flexibility when developing the presented systems.
 
 \subsection{RQ2 - What techniques and technologies are available to analyse and monitor produce in a industrial environment?}
 
+In the reviewed papers, and as can be seen in Figure~\ref{fig:pies}, a total of 30 papers used visual imaging techniques to analyse produce \cite{Choi2018-xp} \cite{Hamza2018-sc} \cite{Shi2019} \cite{Pise2018} \cite{GarillosManliguez2021} \cite{Annaland2020} \cite{Nipas2022} \cite{Indrabayu2019} \cite{Vo2019} \cite{Basri2018} \cite{Kumar2021} \cite{Pande2019-fz} \cite{Nie2019-hx} \cite{Bautista2020-ye} \cite{Mohtar2019-ru} \cite{Saragih2021-wu} \cite{Mishra2022-kz} \cite{Anita2020-nm} \cite{Castro2019-hk} \cite{Muladi2019-jp} \cite{Al_Haque2021-fw} \cite{Prabhu2022-zh} \cite{Park2021-de} \cite{Stasenko2021-jt} \cite{Azizah2017} \cite{Hasan2021} \cite{Zhang2020} \cite{MiraeiAshtiani2021} \cite{EAngelia2021} \cite{Bhole2020}.
+
+While most of the reviewed papers mentioned above utilized RGB cameras, some researchers processed the resulting images further, extracting, for example, hue, saturation, value data and more from these \cite{Indrabayu2019} \cite{Castro2019-hk} or removing colour data altogether, utilizing instead boundary data to determine produce size \cite{Vo2019}. Some included other imaging system outside the visible spectrum of light, such as infra-red \cite{Annaland2020} and thermal imaging\cite{Bhole2020}. The overall preference of researchers towards these imaging systems can be explained by a variety of factors:
+
+\begin{itemize}
+	\item RGB imaging are cheap and easily available in smartphones
+	\item Pre-existing datasets usually include only RGB based data points
+	\item As most of the reviewed papers target fruit, RGB imaging appears to be sufficient to detect changes in the skin of said fruit.
+\end{itemize}
+
+9 papers utilized spectroscopy or spectral imaging to analyse produce. Of these:
+
+\begin{itemize}
+	\item 2 used unspecified spectral band spectroscopy \cite{Geng2021} \cite{GarillosManliguez2021}
+	\item 7 used near-infrared spectroscopy \cite{Zeb2022} \cite{Tran2021} \cite{Annaland2020} \cite{Lu2018} \cite{Choi2018-xp} \cite{Tamayo-Monsalve2022-ud} \cite{Rangel2021}
+\end{itemize}
+
+Spectral imaging appears to be a promising technique to develop detection systems, due to the different abilities it provides based on the spectral band measured. Depending on these, systems are able to detect surface or internal defects and features \cite{Geng2021}. However, the cost of these systems as well as the research required to select the appropriate spectral bands may prove a bottleneck for this technique.
+
+2 papers utilized size in their systems \cite{Choi2018-xp} \cite{Wagimin2022}. Both papers utilize size as a basis for quality detection, due to its prominent effect on grading for the analysed produce: pears \cite{Choi2018-xp} and Mangoes \cite{Wagimin2022}.
+
+Finally, 3 papers utilized acoustic vibrations \cite{Fadchar2020-pp}, chemometrics \cite{Rangel2021} and thermal imaging \cite{Bhole2020}. One of the papers used the sound signatures of dropping coconuts in water to detect their ripeness. This technique, although interesting, may provide little real world value due to its impracticality. One paper utilized chemometrics to relate near infrared spectroscopy to chemical content in watermelons \cite{Rangel2021}. This technique can be useful when utilized with non-destructive detection systems that provide data regarding chemical content. Finally, one paper utilized thermal imaging and RGB imaging to grade mangoes \cite{Bhole2020}. This system provides an interesting detection system, however, different environments may provide obstacles to proper temperature detection and analysis using these systems.
+
+Overall, it can be ascertained that although there is variety in detection systems used by the reviewed papers, there is a tendency towards less complex and more available systems for detection such as RGB cameras.
+
 \subsection{RQ3 - What techniques and technologies previously researched utilize artificial intelligence, and how?}
+
+In the reviewed papers, and as can be seen in Figure~\ref{fig:pies}, a total of 29 papers utilized neural networks as their artificial intelligence technique. Of these:
+
+\begin{itemize}
+	\item 17 used convolutional neural networks \cite{Pande2019-fz} \cite{Mohtar2019-ru} \cite{Saragih2021-wu} \cite{Al_Haque2021-fw} \cite{Tamayo-Monsalve2022-ud} \cite{Park2021-de} \cite{Stasenko2021-jt} \cite{Azizah2017} \cite{Hasan2021} \cite{MiraeiAshtiani2021} \cite{Basri2018} \cite{Kumar2021} \cite{GarillosManliguez2021} \cite{Shi2019} \cite{EAngelia2021} \cite{Bhole2020} \cite{Geng2021}
+	\item 4 used neural networks of unspecified architecture \cite{Fadchar2020-pp} \cite{Anita2020-nm} \cite{Wagimin2022} \cite{Castro2019-hk}
+	\item 4 used feed forward neural networks \cite{Choi2018-xp} \cite{Hamza2018-sc} \cite{Bautista2020-ye} \cite{Rangel2021}
+	\item 2 used back propagation neural networks \cite{Nie2019-hx}, \cite{Muladi2019-jp}
+	\item 1 used convolutional Siamese neural networks \cite{Annaland2020}
+	\item 1 used an extreme learning model \cite{Lu2018}
+\end{itemize}
+
+This overwhelming majority of researchers choosing to use neural networks in their research can be attributed to some factors:
+
+\begin{itemize}
+	\item Neural Networks are currently one of the easier machine learning models to implement, using tools such as Keras\footnote{\url{https://keras.io/}}
+	\item Most of the used datasets are of images and neural networks are more established in that data space
+	\item Automated training of these networks provides an easier process for researchers that are not focused on the artificial intelligence component of their systems
+\end{itemize}
+
+7 papers utilised support vector machines \cite{Zeb2022} \cite{Tran2021} \cite{Indrabayu2019} \cite{Castro2019-hk} \cite{Prabhu2022-zh} \cite{Vo2019} \cite{Wagimin2022}. One of these compared support vector machines, an unspecified neural network and a k-Nearest Neighbors model at the task of grading mangoes \cite{Wagimin2022}, with the support vector machine model being the most accurate model.
+
+One paper compared support vector machines and Naive-Bayes in the task of grading mangoes \cite{Pise2018}. The researchers found that Naive-Bayes was slightly faster at grading mangoes than a support vector machine model.
+
+One paper compared support vector machines, k-Nearest Neighbors, a multiple linear regression model and a discriminant analysis model in the task of classifying apples based on sweetness \cite{Tran2021}. The researchers found that the discriminant analysis model was the best performing model.
+
+One paper compared several techniques, including Decision Trees, Naive-Bayes, Support Vector Machines, k-Nearest Neighbors and an unspecified neural network at distinguishing between fruits using spectroscopy data \cite{Zeb2022}. The authors found comparatively similar accuracy results for all evaluated models.
+
+One paper compared several techniques, including Principal Component Regression, Partial Least Squares and Feed Forward Neural Network, to predict chemical components from spectroscopy data \cite{Rangel2021}.
+
+Overall, the review revealed that in this specific subdomain, researchers undertake their more relevant work on the detection systems themselves rather than the artificial intelligence componentry, using said components as commodities rather than focus of study. As such, most if not all papers reviewed select some models, compare them and select the one deemed most competent. This does not create meaningful advances for artificial intelligence, but does demonstrate the ubiquity of artificial intelligence usage.
 
 \section{Conclusion and future work}
 \label{sec:conc}
+
+This work presents a systematic review in the topic of quality assessment and defect detection in produce. Of the 366 initially retrieved studies, 86 were approved for full-text reading and 38 were included in this review. These studies responded to 3 research questions regarding target produce type, detection systems and artificial intelligence usage. The research throughput throughout the last 5 years has remained steady.
+
+From the review process it was possible to determine that researchers are generally more interested on analysing fruits rather than vegetables, with the vast majority of papers targeting fruits. Furthermore, fruits with colour changes based on ripeness and decay were also more selected (such as apples, bananas and mangoes). The studies also targeted different stages of the agricultural process, from growing, harvest and post-harvest specificity. Further research problems are available, with plenty of produce types, such as potatoes, available to study and investigate.
+
+Most reviewed papers also specified objectives for their investigation based on maturity and overall quality. The latter also regularly included defect detection as part of it's system. This fulfils the topic statement quite well, attempting to directly assess the quality of the produce at hand. However, more research can be executed on firmly determining causational relationships between secondary objectives such as chemical contents and the overall quality.
+
+Most papers utilized computer vision systems to monitor the produce at hand. This cheap, accessible solution is extremely well suited for industrial environments, such as automated facilities. However, other detection techniques have shown good results, such has spectral based approaches (e.g., multi spectral imaging and spectroscopy). Furthermore, research can still be done on multi-modal detection systems, which utilize more than 1 type of sensor to further improve their results.
+
+Finally, the executed review ascertained that most if not all papers included do not provide innovative utilization of artificial intelligence methods in the field, but rather utilize commoditized versions to handle the gathered data. As such, research is still plentifully available, with regards to new and improved artificial intelligence systems as well as domain specific models.
+
+Overall, the quality assessment and defect detection topic in the agricultural and artificial intelligence field produces good research, with multiple target produce types, methods and objectives. As for future work, the limited existence of multi-target systems that target both fruit and vegetables provides a great opportunity for further research by the authors.
 
 \bibliographystyle{IEEEtranN}
 \bibliography{references/introduction,references/method,references/results}
